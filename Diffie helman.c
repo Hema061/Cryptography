@@ -1,35 +1,26 @@
-#include <stdio.h>
-#include <math.h>
-int mod_exp(int a, int b, int n) {
-int result = 1;
-a = a % n;
-while (b > 0) {
-if (b & 1) {
-result = (result * a) % n;
-}
-b = b >> 1;
-a = (a * a) % n;
-}
-return result;
-}
-int main() {
-int q = 7;
-int g = 5;
-int a = 3;
-int b = 4;
-int A = mod_exp(g, a, q);
-int B = mod_exp(g, b, q);
-int s = mod_exp(B, a, p);
-printf("The public parameters are:\n");
-printf("p = %d\n", p);
-printf("g = %d\n", g);
-printf("The private keys are:\n");
-printf("a = %d\n", a);
-printf("b = %d\n", b);
-printf("The public keys are:\n");
-printf("A = %d\n", A);
-printf("B = %d\n", B);
-printf("The shared secret key is:\n");
-printf("s = %d\n", s);
-return 0;
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int main(){
+	int a,q,xa,xb,ya,yb,x,y,ka,kb,m,n;
+	printf("enter the value of a:");
+	scanf("%d",&a);
+	printf("enter the value of q:");
+	scanf("%d",&q);
+	printf("enter the value of xa:");
+	scanf("%d",&xa);
+	printf("enter the value of xb:");
+	scanf("%d",&xb);
+	x=pow(a,xa);
+	ya=x%q;
+	printf("value of ya: %d",ya);
+	y=pow(a,xb);
+	yb=y%q;
+	printf("\nvalue of yb: %d",yb);
+	m=pow(yb,xa);
+	ka=m%q;
+	printf("\nvalue of ka: %d",ka);
+	n=pow(ya,xb);
+	kb=n%q;
+	printf("\nvalue of kb: %d",kb);
 }
