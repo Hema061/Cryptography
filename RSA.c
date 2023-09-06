@@ -24,5 +24,5 @@ int x=pow(m,e);
 int c =x%n;
 printf("Encrypted is %d",c);
 int de=pow(c,d);
-printf("\n Decrypted is %d",de);
+printf("\n Decrypted is %d",de%n);
 }
